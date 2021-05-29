@@ -7,9 +7,17 @@ public class Address {
     private String zipCode;
     private String country = "USA";
 
+    public Address() {
+        System.out.println("Address constructor");
+        street = "unknown st";
+        city = "unknown city";
+        state = "unknown state";
+        zipCode = "unknown zipCode";
+    }
+
     @Override
     public String toString() {
-        return street + " , " + city + " , " + state + " , " + zipCode;
+        return street + ", " + city + ", " + state + ", " + zipCode;
     }
 
     public String getStreet() {
