@@ -6,6 +6,31 @@ public class ElectricCar {
     private double price;
     private int year;
     private int range;
+    private static int count;//all objects will share this variable
+
+    public ElectricCar(String make, String model, double price, int year, int range) {
+        setMake(make);//reuse the code in the setter condition
+        this.model = model;
+        this.price = price;
+        this.year = year;
+        this.range = range;
+        count++; //increase count by 1 - everytime new car is created
+    }
+
+    public static int getCount() {
+        return count;
+    }
+
+    @Override
+    public String toString() {
+        return "ElectricCar{" +
+                "make='" + make + '\'' +
+                ", model='" + model + '\'' +
+                ", price=" + price +
+                ", year=" + year +
+                ", range=" + range +
+                '}';
+    }
 
     public int getRange() {
         return range;
@@ -29,7 +54,11 @@ public class ElectricCar {
     }
 
     public void setMake(String make) {
-        this.make = make;
+        if (make.isEmpty()) {
+            System.out.println("ERROR: Make cannot be blank");
+        } else {
+            this.make = make;
+        }
     }
 
     public String getModel() {
